@@ -1,3 +1,23 @@
+# Build files
+kernel/kernel
+kernel/*.o
+user/*.o
+user/_*
+*.asm
+*.d
+*.out
+*.map
+
+# Disk images
+fs.img
+xv6.img
+
+# QEMU logs
+*.log
+
+# Editor junk
+*~
+*.swp
 *~
 _*
 *.o
@@ -16,3 +36,4 @@ kernel/kernel
 user/usys.S
 .gdbinit
 TAGS
+
