@@ -13,6 +13,16 @@
 #include "stat.h"
 #include "proc.h"
 
+#define MAJOR_FB 3
+
+#define FB_WIDTH 40
+#define FB_HEIGHT 15
+static char framebuffer[FB_HEIGHT][FB_WIDTH];
+
+
+int fbread(int user_dst, uint64 dst, int n);
+int fbwrite(int user_src, uint64 src, int n);
+
 struct devsw devsw[NDEV];
 struct {
   struct spinlock lock;
@@ -23,6 +33,9 @@ void
 fileinit(void)
 {
   initlock(&ftable.lock, "ftable");
+  devsw[3].read = fbread;
+  devsw[3].write = fbwrite;
+
 }
 
 // Allocate a file structure.
@@ -176,5 +189,35 @@ filewrite(struct file *f, uint64 addr, int n)
   }
 
   return ret;
+}
+
+int fbread(int user_dst, uint64 dst, int n) {
+  int max = FB_WIDTH * FB_HEIGHT;
+  if (n > max)
+    n = max;
+
+  // framebuffer là mảng 2D, nhưng copy tuyến tính là OK vì nó liên tục trong memory
+  if (either_copyout(user_dst, dst, framebuffer, n) < 0)
+    return -1;
+
+  return n;
+}
+
+
+int fbwrite(int user_src, uint64 src, int n) {
+  int max = FB_WIDTH * FB_HEIGHT;
+  if (n > max) n = max;
+
+  char buf[max];
+  if (either_copyin(buf, user_src, src, n) < 0)
+    return -1;
+
+  for (int i = 0; i < n; i++) {
+    int y = i / FB_WIDTH;
+    int x = i % FB_WIDTH;
+    framebuffer[y][x] = buf[i];
+  }
+
+  return n;
 }
 

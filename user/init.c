@@ -22,6 +22,11 @@ main(void)
   }
   dup(0);  // stdout
   dup(0);  // stderr
+  
+  mkdir("/dev");
+  if(open("/dev/fb", O_RDWR) < 0){
+    mknod("/dev/fb", 3, 0);
+  }
 
   for(;;){
     printf("init: starting sh\n");
