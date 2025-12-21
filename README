@@ -40,7 +40,7 @@ user/
  ├── init.c        # Create /dev and framebuffer device at boot
  ├── drawdemo.c    # Framebuffer demo (ASCII animation)
  └── mknod.c       # User-level mknod utility
-
+```
 ## Build & Run
 - Build xv6: make clean make qemu
 - Run: drawdemo
