@@ -37,7 +37,6 @@ int             filestat(struct file*, uint64 addr);
 int             filewrite(struct file*, uint64, int n);
 
 // fs.c
-void            fb_create_device(void);
 struct inode*   create(char*, short, short, short);
 void            fsinit(int);
 int             dirlink(struct inode*, char*, uint);
