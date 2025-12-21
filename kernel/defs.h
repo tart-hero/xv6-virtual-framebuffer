@@ -26,6 +26,8 @@ void            consputc(int);
 int             kexec(char*, char**);
 
 // file.c
+int             fbread(int user_dst, uint64 dst, int n);
+int             fbwrite(int user_src, uint64 src, int n);
 struct file*    filealloc(void);
 void            fileclose(struct file*);
 struct file*    filedup(struct file*);
