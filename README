@@ -1,4 +1,7 @@
 # xv6 Virtual Framebuffer
+**Course:** Operating System
+**Group:** 02  
+**Semester:** 2025.2
 
 A simple **virtual framebuffer implementation for xv6-riscv**, exposing a framebuffer device (`/dev/fb`) that allows user programs to draw text-based graphics using standard file I/O.
 
@@ -41,3 +44,5 @@ user/
 ## Build & Run
 - Build xv6: make clean make qemu
 - Run: drawdemo
+
+---
