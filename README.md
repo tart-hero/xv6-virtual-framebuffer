@@ -55,7 +55,8 @@ user/
 - **double-fb**  
   Contains the double-buffered framebuffer with locking.  
   *Only complete frames are displayed, ensuring smooth and flicker-free output.*
-
+  
+---
 ## Usage
 
 1. Clone the repository:
@@ -68,12 +69,12 @@ Switch to the desired branch:
 ```
 ```bash
 git checkout single-fb   # or double-fb
-```
-    Build and run with QEMU:
+
+Build and run with QEMU:
 ```bash
 make clean
 make qemu
-```
+
 Run user programs like drawdemo in xv6 to see ASCII animations.
 
 This project demonstrates kernel development, user-kernel interaction, and simple graphical abstraction in xv6-riscv.
