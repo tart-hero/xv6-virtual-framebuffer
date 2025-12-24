@@ -64,16 +64,19 @@ user/
 ```bash
 git clone https://github.com/tart-hero/xv6-virtual-framebuffer.git
 cd xv6-virtual-framebuffer
-
-Switch to the desired branch:
 ```
+
+2. Switch to the desired branch:
+
 ```bash
 git checkout single-fb   # or double-fb
+```
 
-Build and run with QEMU:
+3. Build and run with QEMU:
 ```bash
 make clean
 make qemu
+```
 
 Run user programs like drawdemo in xv6 to see ASCII animations.
 
