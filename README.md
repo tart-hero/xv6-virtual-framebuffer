@@ -46,3 +46,34 @@ user/
 - Run: drawdemo
 
 ---
+## Branches
+
+- **single-fb**  
+  Contains the single-buffer framebuffer implementation.  
+  *Intermediate states may appear during fast updates (flickering is possible).*
+
+- **double-fb**  
+  Contains the double-buffered framebuffer with locking.  
+  *Only complete frames are displayed, ensuring smooth and flicker-free output.*
+
+## Usage
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/tart-hero/xv6-virtual-framebuffer.git
+cd xv6-virtual-framebuffer
+
+Switch to the desired branch:
+```
+```bash
+git checkout single-fb   # or double-fb
+```
+    Build and run with QEMU:
+```bash
+make clean
+make qemu
+```
+Run user programs like drawdemo in xv6 to see ASCII animations.
+
+This project demonstrates kernel development, user-kernel interaction, and simple graphical abstraction in xv6-riscv.
