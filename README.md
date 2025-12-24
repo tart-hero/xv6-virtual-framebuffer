@@ -43,7 +43,7 @@ user/
 ```
 ## Build & Run
 - Build xv6: make clean make qemu
-- Run: drawdemo
+- Run: drawdemo (for best visualization), drawdemo3 (for single/double framebuffer test)
 
 ---
 ## Branches
